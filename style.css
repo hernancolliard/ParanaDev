@@ -55,7 +55,7 @@
       }
 
       .logo img {
-        height: 40px; /* Ajusta la altura de la imagen del logo */
+        height: 80px; /* Ajusta la altura de la imagen del logo */
         width: auto; /* Mantiene la proporción de aspecto */
         vertical-align: middle; /* Alinea verticalmente con otros elementos si los hubiera */
       }

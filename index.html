@@ -32,8 +32,8 @@
 
     <style>
       :root {
-        --primary: #2563eb;
-        --dark: #0f172a; /* Este color ya no se usará directamente para el texto principal */
+        --primary: #4a4a4a; /* Dark Grey */
+        --dark: #2d2d2d; /* Even darker Grey for footer */
         --gray: #64748b;
         --light: #f8fafc;
         --text-color-on-dark: #ffffff; /* Nueva variable para texto sobre fondos oscuros */
@@ -52,7 +52,7 @@
       body {
         font-family: "Poppins", sans-serif;
         color: var(--text-color-on-dark); /* Texto principal ahora blanco */
-        background-image: url('fondo1.jpg'); /* Asumo .jpg, si es .png u otra, cambiar aquí */
+        background-image: url("fondo1.png"); /* Asumo .jpg, si es .png u otra, cambiar aquí */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -96,7 +96,11 @@
 
       .hero {
         padding: 6rem 0;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)); /* Fondo del hero semi-transparente */
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.8),
+          rgba(30, 64, 175, 0.8)
+        ); /* Fondo del hero semi-transparente */
         color: #ffffff;
         text-align: center;
       }
@@ -114,7 +118,12 @@
 
       section {
         padding: 5rem 0;
-        background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para secciones */
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* Fondo semi-transparente para secciones */
         margin-bottom: 2rem; /* Espacio entre secciones */
         border-radius: 8px; /* Bordes redondeados para secciones */
       }
@@ -123,7 +132,9 @@
         text-align: center;
         margin-bottom: 3rem;
         font-size: 2rem;
-        color: var(--dark); /* Mantener oscuro para contraste en secciones blancas */
+        color: var(
+          --dark
+        ); /* Mantener oscuro para contraste en secciones blancas */
       }
 
       .grid {
@@ -245,7 +256,12 @@
           top: 60px; /* Ajusta según la altura de tu header */
           left: 0;
           width: 100%;
-          background: rgba(255, 255, 255, 0.95); /* Fondo del menú móvil semi-transparente */
+          background: rgba(
+            255,
+            255,
+            255,
+            0.95
+          ); /* Fondo del menú móvil semi-transparente */
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
           padding-bottom: 1rem;
           z-index: 999;

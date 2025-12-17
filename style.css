@@ -54,6 +54,17 @@
         color: var(--primary);
       }
 
+      .logo img {
+        height: 40px; /* Ajusta la altura de la imagen del logo */
+        width: auto; /* Mantiene la proporción de aspecto */
+        vertical-align: middle; /* Alinea verticalmente con otros elementos si los hubiera */
+      }
+
+      /* Para asegurar que el logo sea visible en el header, si es oscuro y el fondo del header es claro */
+      header .logo img {
+        filter: brightness(0) invert(0); /* Esto hará que un logo negro se vea negro en un fondo claro */
+      }
+
       .nav a {
         margin-left: 1.5rem;
         text-decoration: none;

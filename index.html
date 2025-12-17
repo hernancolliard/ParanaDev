@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desarrollo Web Profesional | Hernán Colliard</title>
+    <title>Desarrollo Web Profesional | Parana Dev | Hernán Colliard</title>
 
     <!-- SEO -->
     <meta
@@ -33,9 +33,10 @@
     <style>
       :root {
         --primary: #2563eb;
-        --dark: #0f172a;
+        --dark: #0f172a; /* Este color ya no se usará directamente para el texto principal */
         --gray: #64748b;
         --light: #f8fafc;
+        --text-color-on-dark: #ffffff; /* Nueva variable para texto sobre fondos oscuros */
       }
 
       * {
@@ -50,16 +51,20 @@
 
       body {
         font-family: "Poppins", sans-serif;
-        color: var(--dark);
-        background: #ffffff;
+        color: var(--text-color-on-dark); /* Texto principal ahora blanco */
+        background-image: url('fondo1.jpg'); /* Asumo .jpg, si es .png u otra, cambiar aquí */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         line-height: 1.6;
       }
 
       header {
         position: sticky;
         top: 0;
-        background: #ffffff;
-        border-bottom: 1px solid #e5e7eb;
+        background: rgba(255, 255, 255, 0.9); /* Header semi-transparente */
+        border-bottom: 1px solid rgba(229, 231, 235, 0.5); /* Borde más suave */
         z-index: 1000;
       }
 
@@ -85,13 +90,13 @@
       .nav a {
         margin-left: 1.5rem;
         text-decoration: none;
-        color: var(--dark);
+        color: var(--dark); /* Cambiado a var(--dark) que ahora es oscuro */
         font-weight: 500;
       }
 
       .hero {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #2563eb, #1e40af);
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)); /* Fondo del hero semi-transparente */
         color: #ffffff;
         text-align: center;
       }
@@ -109,12 +114,16 @@
 
       section {
         padding: 5rem 0;
+        background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para secciones */
+        margin-bottom: 2rem; /* Espacio entre secciones */
+        border-radius: 8px; /* Bordes redondeados para secciones */
       }
 
       h2 {
         text-align: center;
         margin-bottom: 3rem;
         font-size: 2rem;
+        color: var(--dark); /* Mantener oscuro para contraste en secciones blancas */
       }
 
       .grid {
@@ -124,7 +133,7 @@
       }
 
       .card {
-        background: #ffffff;
+        background: #ffffff; /* Mantener blanco para las tarjetas */
         border-radius: 12px;
         padding: 2rem;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
@@ -146,13 +155,14 @@
       .card ul {
         list-style: disc;
         padding-left: 1.2rem;
+        color: var(--dark); /* Asegurar color de texto en tarjetas */
       }
 
       .about {
         max-width: 800px;
         margin: auto;
         text-align: center;
-        color: var(--gray);
+        color: var(--dark); /* Asegurar color de texto en sección about */
       }
 
       form {
@@ -168,6 +178,8 @@
         border-radius: 8px;
         border: 1px solid #cbd5f5;
         font-family: inherit;
+        color: var(--dark); /* Color de texto en inputs */
+        background-color: var(--light); /* Fondo claro para inputs */
       }
 
       button {
@@ -181,7 +193,7 @@
       }
 
       footer {
-        background: var(--dark);
+        background: var(--dark); /* Fondo del footer oscuro */
         color: #ffffff;
         padding: 2rem 0;
         text-align: center;
@@ -218,7 +230,7 @@
         border: none;
         font-size: 2rem;
         cursor: pointer;
-        color: var(--dark);
+        color: var(--dark); /* Color oscuro para el icono en header claro */
       }
 
       @media (max-width: 768px) {
@@ -233,7 +245,7 @@
           top: 60px; /* Ajusta según la altura de tu header */
           left: 0;
           width: 100%;
-          background: #ffffff;
+          background: rgba(255, 255, 255, 0.95); /* Fondo del menú móvil semi-transparente */
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
           padding-bottom: 1rem;
           z-index: 999;
@@ -246,16 +258,18 @@
         .nav nav a {
           margin: 0.5rem 1.5rem;
           text-align: center;
+          color: var(--dark); /* Color oscuro para los enlaces en menú móvil */
         }
       }
     </style>
   </head>
   <body>
-      <header>
+    <header>
       <div class="container nav">
         <div class="logo">Parana Dev</div>
         <button class="hamburger-menu" id="hamburger-menu">
-          &#9776; <!-- Icono de hamburguesa -->
+          &#9776;
+          <!-- Icono de hamburguesa -->
         </button>
         <nav id="nav-links">
           <a href="#servicios">Servicios</a>

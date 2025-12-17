@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desarrollo Web Profesional | Hernán Colliard</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Desarrollo de páginas web y aplicaciones modernas, optimizadas para SEO y alto rendimiento. Landing pages, sitios institucionales y apps web."
+    />
+    <meta
+      name="keywords"
+      content="desarrollo web, landing page, programador web, páginas web, SEO, aplicaciones web"
+    />
+    <meta name="author" content="Hernán Colliard" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Desarrollo Web Profesional" />
+    <meta
+      property="og:description"
+      content="Creamos sitios web modernos, rápidos y optimizados para convertir."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #2563eb;
+        --dark: #0f172a;
+        --gray: #64748b;
+        --light: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--dark);
+        background: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        z-index: 1000;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--primary);
+      }
+
+      .nav a {
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      .hero {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #2563eb, #1e40af);
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        max-width: 700px;
+        margin: auto;
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s ease;
+      }
+
+      .card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card h3 {
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .card ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+
+      .about {
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        color: var(--gray);
+      }
+
+      form {
+        max-width: 600px;
+        margin: auto;
+        display: grid;
+        gap: 1rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: 1px solid #cbd5f5;
+        font-family: inherit;
+      }
+
+      button {
+        padding: 0.9rem;
+        border: none;
+        border-radius: 8px;
+        background: var(--primary);
+        color: #ffffff;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      footer {
+        background: var(--dark);
+        color: #ffffff;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .social a {
+        margin: 0 0.5rem;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .whatsapp {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25d366;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #ffffff;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+      }
+
+      /* Estilos para el menú de hamburguesa */
+      .hamburger-menu {
+        display: none; /* Oculto por defecto en escritorio */
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--dark);
+      }
+
+      @media (max-width: 768px) {
+        .hamburger-menu {
+          display: block; /* Muestro en móvil */
+        }
+
+        .nav nav {
+          display: none; /* Oculto la navegación por defecto en móvil */
+          flex-direction: column;
+          position: absolute;
+          top: 60px; /* Ajusta según la altura de tu header */
+          left: 0;
+          width: 100%;
+          background: #ffffff;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+          padding-bottom: 1rem;
+          z-index: 999;
+        }
+
+        .nav nav.nav-open {
+          display: flex; /* Muestro la navegación cuando está abierta */
+        }
+
+        .nav nav a {
+          margin: 0.5rem 1.5rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <header>
+      <div class="container nav">
+        <div class="logo">Parana Dev</div>
+        <button class="hamburger-menu" id="hamburger-menu">
+          &#9776; <!-- Icono de hamburguesa -->
+        </button>
+        <nav id="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#planes">Planes</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Desarrollo Web Profesional</h1>
+        <p>
+          Diseño y desarrollo de sitios web modernos, rápidos y optimizados para
+          convertir visitantes en clientes.
+        </p>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="container">
+        <h2>Trabajos Realizados</h2>
+        <div class="grid">
+          <div class="card">Proyecto 1</div>
+          <div class="card">Proyecto 2</div>
+          <div class="card">Proyecto 3</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <h2>Sobre Nosotros</h2>
+        <p class="about">
+          Somos desarrolladores especializados en crear soluciones web
+          eficientes, escalables y orientadas a resultados.
+        </p>
+      </div>
+    </section>
+
+    <section id="planes">
+      <div class="container">
+        <h2>Planes</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Landing Básica</h3>
+            <ul>
+              <li>Diseño profesional</li>
+              <li>Optimización SEO</li>
+              <li>Formulario de contacto</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Web Profesional</h3>
+            <ul>
+              <li>Multipágina</li>
+              <li>SEO avanzado</li>
+              <li>Integración WhatsApp</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>App Web</h3>
+            <ul>
+              <li>Backend personalizado</li>
+              <li>Base de datos</li>
+              <li>Autenticación de usuarios</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <form>
+          <input type="text" placeholder="Nombre" required />
+          <input type="email" placeholder="Email" required />
+          <textarea rows="4" placeholder="Mensaje"></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Parana Dev - Desarrollo Web</p>
+        <div class="social">
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/5493434055823" target="_blank">✆</a>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+
+      // JavaScript para el menú de hamburguesa
+      const hamburgerButton = document.getElementById("hamburger-menu");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburgerButton.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
+      });
+    </script>
+  </body>
+</html>

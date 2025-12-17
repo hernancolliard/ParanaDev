@@ -62,7 +62,7 @@
 
       /* Para asegurar que el logo sea visible en el header, si es oscuro y el fondo del header es claro */
       header .logo img {
-        filter: brightness(0) invert(0); /* Esto hará que un logo negro se vea negro en un fondo claro */
+        /* filter: brightness(0) invert(0); Esto hará que un logo negro se vea negro en un fondo claro */
       }
 
       .nav a {

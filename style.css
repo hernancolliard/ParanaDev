@@ -145,14 +145,17 @@ h2 {
   padding-left: 1.2rem;
   color: var(--dark); /* Asegurar color de texto en tarjetas */
 }
-
+.card p {
+  color: #2d2d2d;
+}
 .card h4 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   color: var(--dark);
 }
 
-.card ul ul { /* Estilos para los ul anidados */
+.card ul ul {
+  /* Estilos para los ul anidados */
   list-style: circle; /* Un estilo diferente para diferenciar */
   padding-left: 1.5rem;
   margin-top: 0.5rem;

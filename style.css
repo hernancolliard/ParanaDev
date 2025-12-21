@@ -149,7 +149,7 @@ h2 {
 .card h4 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  color: var(--primary);
+  color: var(--dark);
 }
 
 .card ul ul { /* Estilos para los ul anidados */
@@ -162,7 +162,7 @@ h2 {
 .card .resultado {
   font-weight: 600;
   margin-top: 1.5rem;
-  color: var(--primary);
+  color: var(--dark);
 }
 
 .about {

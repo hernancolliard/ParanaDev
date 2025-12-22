@@ -123,16 +123,40 @@ h2 {
 .card {
   background: #ffffff; /* Mantener blanco para las tarjetas */
   border-radius: 12px;
-  padding: 2rem;
+  /* padding: 2rem; */ /* Eliminado para que la imagen ocupe todo el espacio */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.6s ease;
+  transition: all 0.3s ease-in-out; /* Transición más rápida para hover */
+  overflow: hidden; /* Asegura que la imagen no se salga de la tarjeta al agrandarse */
+  display: flex; /* Para controlar mejor el contenido */
+  flex-direction: column; /* Para apilar contenido */
+  justify-content: space-between; /* Para espaciar el contenido */
+  height: 100%; /* Asegura que las tarjetas tengan la misma altura si están en un grid */
 }
 
 .card.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.card:hover {
+  transform: scale(1.03) translateY(-5px); /* Efecto de agrandar y mover hacia arriba */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada en hover */
+}
+
+.card a {
+  display: block;
+  height: 100%;
+  text-decoration: none; /* Asegura que el enlace no tenga subrayado */
+  color: inherit; /* Hereda el color del texto de la tarjeta */
+}
+
+.card img {
+  width: 100%;
+  height: 100%; /* La imagen ocupa toda la altura del contenedor */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  border-radius: 12px 12px 0 0; /* Bordes redondeados solo arriba si la tarjeta tiene contenido abajo */
 }
 
 .card h3 {

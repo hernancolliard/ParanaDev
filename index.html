@@ -189,11 +189,12 @@
     <section id="contacto">
       <div class="container">
         <h2>Contacto</h2>
-        <form>
-          <input type="text" placeholder="Nombre" required />
-          <input type="email" placeholder="Email" required />
-          <textarea rows="4" placeholder="Mensaje"></textarea>
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Nombre" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <textarea rows="4" id="message" placeholder="Mensaje"></textarea>
           <button type="submit">Enviar mensaje</button>
+          <p id="formMessage"></p>
         </form>
       </div>
     </section>

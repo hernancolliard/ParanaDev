@@ -1,0 +1,51 @@
+import os
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from dotenv import load_dotenv
+from resend import Resend
+
+load_dotenv() # Carga las variables de entorno del archivo .env
+
+app = Flask(__name__)
+# Configurar CORS para permitir solicitudes desde tu frontend
+# Reemplaza con la URL de tu frontend cuando esté desplegado
+CORS(app, resources={r"/contact": {"origins": ["http://127.0.0.1:5500", "http://localhost:3000"]}})
+
+resend_api_key = os.getenv("RESEND_API_KEY")
+resend = Resend(api_key=resend_api_key)
+
+@app.route("/contact", methods=["POST"])
+def contact():
+    data = request.json
+    nombre = data.get("nombre")
+    email = data.get("email")
+    mensaje = data.get("mensaje")
+
+    if not all([nombre, email, mensaje]):
+        return jsonify({"error": "Todos los campos son obligatorios."}), 400
+
+    try:
+        r = resend.emails.send({
+            "from": "onboarding@resend.dev", # Reemplaza con tu dominio verificado en Resend
+            "to": "your_email@example.com", # Reemplaza con tu dirección de correo donde quieres recibir los mensajes
+            "subject": f"Nuevo mensaje de contacto de {nombre}",
+            "html": f"""
+                <p><strong>Nombre:</strong> {nombre}</p>
+                <p><strong>Email:</strong> {email}</p>
+                <p><strong>Mensaje:</strong> {mensaje}</p>
+            """,
+        })
+        print(r) # Para depuración, puedes ver la respuesta de Resend
+
+        if r and r.get('id'): # Resend exitoso devuelve un ID de email
+            return jsonify({"message": "Mensaje enviado con éxito."}), 200
+        else:
+            print("Error details from Resend:", r)
+            return jsonify({"error": "Error al enviar el mensaje con Resend."}), 500
+
+    except Exception as e:
+        print(f"Error en el servidor: {e}")
+        return jsonify({"error": "Error interno del servidor."}), 500
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000) # El puerto 5000 es el puerto por defecto de Flask

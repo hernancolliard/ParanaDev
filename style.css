@@ -45,7 +45,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .logo {
@@ -55,8 +55,8 @@ header {
 }
 
 .logo img {
-  height: 80px; /* Ajusta la altura de la imagen del logo */
-  width: auto; /* Mantiene la proporción de aspecto */
+  height: 60px; /* Ajusta la altura de la imagen del logo */
+  width: auto; /* Mantiene la proporción de aspecto
   vertical-align: middle; /* Alinea verticalmente con otros elementos si los hubiera */
 }
 
@@ -70,6 +70,12 @@ header .logo img {
   text-decoration: none;
   color: var(--dark); /* Cambiado a var(--dark) que ahora es oscuro */
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--primary);
+  transform: scale(1.1);
 }
 
 .hero {
@@ -224,6 +230,12 @@ button {
   color: #ffffff;
   font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--dark);
+  transform: scale(1.05);
 }
 
 footer {
@@ -237,6 +249,12 @@ footer {
   margin: 0 0.5rem;
   color: #ffffff;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social a:hover {
+  color: var(--gray);
+  transform: scale(1.1);
 }
 
 .whatsapp {

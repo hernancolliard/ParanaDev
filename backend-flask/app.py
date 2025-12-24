@@ -2,7 +2,7 @@ import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
-from resend import Resend
+import resend
 
 load_dotenv() # Carga las variables de entorno del archivo .env
 
@@ -10,9 +10,8 @@ app = Flask(__name__)
 # Configurar CORS para permitir solicitudes desde el frontend local y el desplegado en Render
 CORS(app, resources={r"/contact": {"origins": ["http://127.0.0.1:5500", "http://localhost:3000", "https://paranadev.onrender.com"]}})
 
-resend_api_key = os.getenv("RESEND_API_KEY")
+resend.api_key = os.getenv("RESEND_API_KEY")
 destination_email = os.getenv("DESTINATION_EMAIL")
-resend = Resend(api_key=resend_api_key)
 
 @app.route("/contact", methods=["POST"])
 def contact():
@@ -25,7 +24,7 @@ def contact():
         return jsonify({"error": "Todos los campos son obligatorios y el servidor debe tener una configuración de email de destino."}), 400
 
     try:
-        r = resend.emails.send({
+        r = resend.Emails.send({
             "from": "onboarding@resend.dev", # Reemplaza con tu dominio verificado en Resend
             "to": destination_email, # Reemplaza con tu dirección de correo donde quieres recibir los mensajes
             "subject": f"Nuevo mensaje de contacto de {nombre}",

@@ -7,9 +7,8 @@ from resend import Resend
 load_dotenv() # Carga las variables de entorno del archivo .env
 
 app = Flask(__name__)
-# Configurar CORS para permitir solicitudes desde tu frontend
-# Reemplaza con la URL de tu frontend cuando esté desplegado
-CORS(app, resources={r"/contact": {"origins": ["http://127.0.0.1:5500", "http://localhost:3000"]}})
+# Configurar CORS para permitir solicitudes desde el frontend local y el desplegado en Render
+CORS(app, resources={r"/contact": {"origins": ["http://127.0.0.1:5500", "http://localhost:3000", "https://paranadev.onrender.com"]}})
 
 resend_api_key = os.getenv("RESEND_API_KEY")
 resend = Resend(api_key=resend_api_key)

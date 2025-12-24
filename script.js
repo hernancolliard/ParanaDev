@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.style.color = 'orange';
 
             try {
-                const response = await fetch('http://localhost:5000/contact', { // URL del backend Flask
+                const response = await fetch('https://paranadev-backend.onrender.com/contact', { // URL del backend Flask
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

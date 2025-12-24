@@ -65,7 +65,7 @@ header .logo img {
   /* filter: brightness(0) invert(0); Esto hará que un logo negro se vea negro en un fondo claro */
 }
 
-.nav a {
+#nav-links a {
   margin-left: 1.5rem;
   text-decoration: none;
   color: var(--dark); /* Cambiado a var(--dark) que ahora es oscuro */
@@ -73,7 +73,7 @@ header .logo img {
   transition: all 0.3s ease;
 }
 
-.nav a:hover {
+#nav-links a:hover {
   background-color: var(--primary);
   color: var(--light);
   transform: scale(1.1);

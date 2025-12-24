@@ -11,6 +11,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/contact": {"origins": ["http://127.0.0.1:5500", "http://localhost:3000", "https://paranadev.onrender.com"]}})
 
 resend_api_key = os.getenv("RESEND_API_KEY")
+destination_email = os.getenv("DESTINATION_EMAIL")
 resend = Resend(api_key=resend_api_key)
 
 @app.route("/contact", methods=["POST"])
@@ -20,13 +21,13 @@ def contact():
     email = data.get("email")
     mensaje = data.get("mensaje")
 
-    if not all([nombre, email, mensaje]):
-        return jsonify({"error": "Todos los campos son obligatorios."}), 400
+    if not all([nombre, email, mensaje, destination_email]):
+        return jsonify({"error": "Todos los campos son obligatorios y el servidor debe tener una configuración de email de destino."}), 400
 
     try:
         r = resend.emails.send({
             "from": "onboarding@resend.dev", # Reemplaza con tu dominio verificado en Resend
-            "to": "your_email@example.com", # Reemplaza con tu dirección de correo donde quieres recibir los mensajes
+            "to": destination_email, # Reemplaza con tu dirección de correo donde quieres recibir los mensajes
             "subject": f"Nuevo mensaje de contacto de {nombre}",
             "html": f"""
                 <p><strong>Nombre:</strong> {nombre}</p>

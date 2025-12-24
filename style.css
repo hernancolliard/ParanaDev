@@ -321,3 +321,92 @@ footer {
     color: var(--dark); /* Color oscuro para los enlaces en menÃº mÃ³vil */
   }
 }
+/* Estilos para la seccion sobre-nosotros */
+#sobre-nosotros {
+  padding: 80px 20px;
+  background-color: #ffffff; /* Puedes cambiar el color de fondo */
+  color: #333;
+}
+
+#sobre-nosotros .intro-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+#sobre-nosotros h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#sobre-nosotros h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff; /* Color principal de tu marca */
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+#sobre-nosotros .about-main {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #666;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grid de características */
+#sobre-nosotros .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+#sobre-nosotros .feature-card {
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+#sobre-nosotros .feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+#sobre-nosotros .icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 123, 255, 0.1); /* Color suave de fondo para el icono */
+  color: #007bff; /* Color del icono */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+#sobre-nosotros .feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+#sobre-nosotros .feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  #sobre-nosotros h2 { font-size: 2rem; }
+  #sobre-nosotros .about-main { font-size: 1.1rem; }
+}

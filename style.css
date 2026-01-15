@@ -338,11 +338,11 @@ footer {
   margin-bottom: 20px;
   color: #1a1a1a;
   position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #sobre-nosotros h2::after {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 4px;
@@ -357,10 +357,10 @@ footer {
   max-width: 800px;
   margin: 0 auto;
   color: #666;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Grid de características */
+/* Grid de caracterï¿½sticas */
 #sobre-nosotros .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -378,7 +378,7 @@ footer {
 
 #sobre-nosotros .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 #sobre-nosotros .icon-box {
@@ -405,8 +405,29 @@ footer {
   color: #555;
 }
 
-/* Ajustes para móviles */
+/* Ajustes para mï¿½viles */
 @media (max-width: 768px) {
-  #sobre-nosotros h2 { font-size: 2rem; }
-  #sobre-nosotros .about-main { font-size: 1.1rem; }
+  #sobre-nosotros h2 {
+    font-size: 2rem;
+  }
+  #sobre-nosotros .about-main {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ajustes para la secciÃ³n Planes */
+#planes .card {
+  padding: 2rem;
+}
+
+#planes .card:nth-child(odd) {
+  background-color: var(--primary);
+}
+
+#planes .card:nth-child(odd) h3,
+#planes .card:nth-child(odd) p,
+#planes .card:nth-child(odd) ul,
+#planes .card:nth-child(odd) h4,
+#planes .card:nth-child(odd) .resultado {
+  color: #ffffff;
 }

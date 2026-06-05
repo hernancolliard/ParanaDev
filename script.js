@@ -82,21 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("https://paranadev-backend.onrender.com/contact", {
+        const response = await fetch(contactForm.action, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            Accept: "application/json",
           },
-          body: JSON.stringify({ nombre: name, email, mensaje: message }),
+          body: new FormData(contactForm),
         });
 
         const data = await response.json();
 
         if (response.ok) {
-          setFormMessage(data.message || "Consulta enviada. Te responderé a la brevedad.", "#157347");
+          setFormMessage("Consulta enviada. Te responderé a la brevedad.", "#157347");
           contactForm.reset();
         } else {
-          setFormMessage(data.error || "No se pudo enviar la consulta. Probá nuevamente.", "#b42318");
+          const errorMessage = data.errors?.map((item) => item.message).join(" ") || data.error;
+          setFormMessage(errorMessage || "No se pudo enviar la consulta. Probá nuevamente.", "#b42318");
         }
       } catch (error) {
         console.error("Error al enviar el formulario:", error);

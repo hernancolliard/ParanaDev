@@ -1,76 +1,112 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Lógica existente para el menú de hamburguesa
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links');
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerMenu = document.getElementById("hamburger-menu");
+  const navLinks = document.getElementById("nav-links");
 
-    if (hamburgerMenu && navLinks) {
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-open');
-        });
+  if (hamburgerMenu && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove("nav-open");
+      hamburgerMenu.setAttribute("aria-expanded", "false");
+      hamburgerMenu.setAttribute("aria-label", "Abrir menú");
+    };
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('nav-open')) {
-                    navLinks.classList.remove('nav-open');
-                }
-            });
-        });
-    }
-
-    // Lógica para mostrar tarjetas con scroll
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    cards.forEach(card => {
-        observer.observe(card);
+    hamburgerMenu.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("nav-open");
+      hamburgerMenu.setAttribute("aria-expanded", String(isOpen));
+      hamburgerMenu.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
     });
 
-    // Lógica para el formulario de contacto
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
 
-    if (contactForm && formMessage) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevenir el envío tradicional del formulario
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+  }
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+  const revealItems = document.querySelectorAll(".reveal");
 
-            formMessage.textContent = 'Enviando mensaje...';
-            formMessage.style.color = 'orange';
-
-            try {
-                const response = await fetch('https://paranadev-backend.onrender.com/contact', { // URL del backend Flask
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ nombre: name, email, mensaje: message }),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    formMessage.textContent = data.message || 'Mensaje enviado con éxito.';
-                    formMessage.style.color = 'green';
-                    contactForm.reset(); // Limpiar el formulario
-                } else {
-                    formMessage.textContent = data.error || 'Error al enviar el mensaje.';
-                    formMessage.style.color = 'red';
-                }
-            } catch (error) {
-                console.error('Error al enviar el formulario:', error);
-                formMessage.textContent = 'Error de conexión. Inténtalo de nuevo más tarde.';
-                formMessage.style.color = 'red';
-            }
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
         });
-    }
+      },
+      { threshold: 0.14 }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("show"));
+  }
+
+  const contactForm = document.getElementById("contactForm");
+  const formMessage = document.getElementById("formMessage");
+
+  if (contactForm && formMessage) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    const setFormMessage = (message, color) => {
+      formMessage.textContent = message;
+      formMessage.style.color = color;
+    };
+
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        setFormMessage("Completá todos los campos para enviar la consulta.", "#b42318");
+        return;
+      }
+
+      if (!contactForm.checkValidity()) {
+        setFormMessage("Revisá que el email esté escrito correctamente.", "#b42318");
+        return;
+      }
+
+      setFormMessage("Enviando consulta...", "#8a5a00");
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
+      }
+
+      try {
+        const response = await fetch("https://paranadev-backend.onrender.com/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ nombre: name, email, mensaje: message }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setFormMessage(data.message || "Consulta enviada. Te responderé a la brevedad.", "#157347");
+          contactForm.reset();
+        } else {
+          setFormMessage(data.error || "No se pudo enviar la consulta. Probá nuevamente.", "#b42318");
+        }
+      } catch (error) {
+        console.error("Error al enviar el formulario:", error);
+        setFormMessage("Error de conexión. También podés contactarme por WhatsApp.", "#b42318");
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Enviar consulta";
+        }
+      }
+    });
+  }
 });

@@ -3,316 +3,372 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desarrollo Web Profesional | Parana Dev | Hernán Colliard</title>
+    <title>Parana Dev | Desarrollo web profesional para vender más</title>
 
-    <!-- SEO -->
     <meta
       name="description"
-      content="Desarrollo de páginas web y aplicaciones modernas, optimizadas para SEO y alto rendimiento. Landing pages, sitios institucionales y apps web."
+      content="Diseño y desarrollo sitios web profesionales, rápidos y orientados a vender. Landing pages, webs corporativas y tiendas online para emprendedores y pymes."
     />
     <meta
       name="keywords"
-      content="desarrollo web, landing page, programador web, páginas web, SEO, aplicaciones web"
+      content="desarrollo web, landing page, programador web, páginas web, SEO, tiendas online, Paraná"
     />
     <meta name="author" content="Hernán Colliard" />
+    <meta name="theme-color" content="#0b1727" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Desarrollo Web Profesional" />
+    <meta
+      property="og:title"
+      content="Parana Dev | Desarrollo web profesional"
+    />
     <meta
       property="og:description"
-      content="Creamos sitios web modernos, rápidos y optimizados para convertir."
+      content="Sitios web modernos, rápidos y preparados para convertir visitantes en clientes."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="paranadev-sf.png" />
 
-    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <div class="container nav">
-        <div class="logo">
-          <a href="#"
-            ><img src="paranadev-sinfondo.png" alt="Parana Dev Logo"
-          /></a>
-        </div>
-        <button class="hamburger-menu" id="hamburger-menu">
-          &#9776;
-          <!-- Icono de hamburguesa -->
+        <a class="logo" href="#inicio" aria-label="Ir al inicio de Parana Dev">
+          <img src="paranadev-sinfondo.png" alt="Parana Dev" />
+        </a>
+
+        <button
+          class="hamburger-menu"
+          id="hamburger-menu"
+          type="button"
+          aria-label="Abrir menú"
+          aria-controls="nav-links"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <nav id="nav-links">
-          <a href="#sobre-nosotros">Sobre Nosotros</a>
-          <a href="#proyectos">Proyectos</a>
+
+        <nav id="nav-links" aria-label="Navegación principal">
+          <a href="#sobre-nosotros">Servicios</a>
+          <a href="#proyectos">Trabajos</a>
           <a href="#planes">Planes</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#proceso">Proceso</a>
+          <a class="nav-cta" href="#contacto">Cotizar</a>
         </nav>
       </div>
     </header>
 
-    <section class="hero">
-      <div class="container">
-        <h1>Desarrollo Web Profesional</h1>
-        <p>
-          Diseño y desarrollo de sitios web modernos, rápidos y optimizados para
-          convertir visitantes en clientes.
-        </p>
-      </div>
-    </section>
-
-    <section id="proyectos">
-      <div class="container">
-        <h2>Trabajos Realizados</h2>
-        <div class="grid">
-          <div class="card">
-            <a href="https://futbolproyect.com/" target="_blank">
-              <img
-                src="futbolproyect-img.png"
-                alt="FutbolProyect"
-                style="width: 100%; height: auto"
-              />
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-content">
+          <p class="eyebrow">Desarrollo web para emprendedores, profesionales y pymes</p>
+          <h1 id="hero-title">Sitios web profesionales para vender más desde el primer día</h1>
+          <p class="hero-copy">
+            Diseño y desarrollo páginas rápidas, claras y listas para recibir consultas por WhatsApp o formulario. Tu web no solo tiene que verse bien: tiene que generar confianza y contactos.
+          </p>
+          <div class="hero-actions" aria-label="Acciones principales">
+            <a class="btn btn-primary" href="#contacto">Quiero mi web</a>
+            <a
+              class="btn btn-secondary"
+              href="https://wa.me/5493434055823?text=Hola%20Parana%20Dev,%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+              target="_blank"
+              rel="noopener"
+            >
+              Hablar por WhatsApp
             </a>
           </div>
-          <div class="card">Proyecto 2</div>
-          <div class="card">Proyecto 3</div>
+          <dl class="hero-stats" aria-label="Beneficios destacados">
+            <div>
+              <dt>3 a 10 días</dt>
+              <dd>entregas ágiles</dd>
+            </div>
+            <div>
+              <dt>100%</dt>
+              <dd>responsive</dd>
+            </div>
+            <div>
+              <dt>SEO básico</dt>
+              <dd>incluido</dd>
+            </div>
+          </dl>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="sobre-nosotros">
-      <div class="container">
-        <div class="intro-section">
-          <h2>Sobre Nosotros</h2>
-          <p class="about-main">
-            En <strong>Parana Dev</strong>, no solo escribimos código; creamos
-            <strong>activos digitales</strong> diseñados para impulsar el
-            crecimiento de tu negocio. Nos enfocamos en transformar ideas
-            complejas en experiencias web intuitivas que generan confianza y
-            resultados reales.
-          </p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                <line x1="11" y1="8" x2="11" y2="14"></line>
-                <line x1="8" y1="11" x2="14" y2="11"></line>
-              </svg>
-            </div>
-            <h3>Visibilidad (SEO)</h3>
+      <section id="sobre-nosotros" class="section section-light">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Qué hacemos</p>
+            <h2>Webs pensadas para atraer, convencer y convertir</h2>
             <p>
-              Construimos tu sitio con una estructura optimizada para
-              buscadores, asegurando que tu marca sea fácil de encontrar.
+              En Parana Dev construimos activos digitales simples de usar, fáciles de entender y preparados para que un cliente te contacte sin fricción.
             </p>
           </div>
 
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <h3>Diseño Responsivo</h3>
-            <p>
-              Garantizamos una experiencia impecable y profesional en cualquier
-              dispositivo, desde smartphones hasta monitores 4K.
-            </p>
-          </div>
+          <div class="features-grid">
+            <article class="feature-card reveal">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M4 5h16v10H4z"></path>
+                  <path d="M8 21h8"></path>
+                  <path d="M12 15v6"></path>
+                </svg>
+              </div>
+              <h3>Diseño responsive</h3>
+              <p>La experiencia se adapta a celular, tablet y escritorio con una estética consistente y profesional.</p>
+            </article>
 
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon
-                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-                ></polygon>
-              </svg>
-            </div>
-            <h3>Velocidad Extrema</h3>
-            <p>
-              Optimizamos cada milisegundo de carga para reducir la tasa de
-              rebote y mantener a tus usuarios comprometidos.
-            </p>
-          </div>
+            <article class="feature-card reveal">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M13 2 4 14h7l-1 8 10-13h-7z"></path>
+                </svg>
+              </div>
+              <h3>Velocidad y claridad</h3>
+              <p>Arquitectura liviana, secciones escaneables y llamadas a la acción visibles para reducir abandono.</p>
+            </article>
 
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <circle cx="12" cy="12" r="6"></circle>
-                <circle cx="12" cy="12" r="2"></circle>
-              </svg>
-            </div>
-            <h3>Orientación a Resultados</h3>
-            <p>
-              Cada elemento de tu web está estratégicamente ubicado para
-              convertir visitantes en clientes potenciales.
-            </p>
+            <article class="feature-card reveal">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m20 20-4-4"></path>
+                  <path d="M11 8v6"></path>
+                  <path d="M8 11h6"></path>
+                </svg>
+              </div>
+              <h3>SEO inicial</h3>
+              <p>Estructura semántica, metadatos, textos orientados a búsqueda y buenas bases para posicionar.</p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <circle cx="12" cy="12" r="1.5"></circle>
+                </svg>
+              </div>
+              <h3>Conversión</h3>
+              <p>Contenido, jerarquía visual, WhatsApp y formulario ordenados para transformar visitas en oportunidades.</p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="planes">
-      <div class="container">
-        <h2>Planes</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Landing Page Profesional</h3>
-            <p>Ideal para emprendedores y profesionales</p>
-            <ul>
-              <li>Diseño de Landing Page (1 página)</li>
-              <li>Diseño moderno y 100% responsive</li>
-              <li>Secciones estratégicas para conversión</li>
-              <li>Botón de WhatsApp y/o formulario de contacto</li>
-              <li>Dominio incluido</li>
-              <li>Hosting incluido (1 año)</li>
-              <li>Certificado de seguridad SSL</li>
-              <li>Optimización SEO básica</li>
-              <li>Carga rápida y diseño optimizado</li>
-            </ul>
-            <h4>Plazo:</h4>
-            <p>3 a 5 días</p>
-            <h4>Precio orientativo:</h4>
-            <p>USD 120 - $ 180.000</p>
-            <p class="resultado">
-              Resultado para el cliente:<br />“Una web que se ve profesional y
-              empieza a generar contactos”.
-            </p>
+      <section id="proyectos" class="section section-muted">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Trabajos y experiencia</p>
+            <h2>Proyectos con foco comercial</h2>
+            <p>Una web profesional debe mostrar rápido qué ofrece, para quién es y cuál es el próximo paso.</p>
           </div>
-          <div class="card">
-            <h3>Web Profesional / Corporativa</h3>
-            <p>Ideal para pymes, marcas personales y profesionales</p>
-            <ul>
-              <li>
-                Sitio web de hasta 5-6 secciones
-                <ul>
-                  <li>Ejemplo:</li>
-                  <li>Inicio</li>
-                  <li>Servicios</li>
-                  <li>Portfolio / Proyectos</li>
-                  <li>Sobre nosotros</li>
-                  <li>Contacto</li>
-                  <li>Blog o sección informativa</li>
-                </ul>
-              </li>
-              <li>Diseño personalizado y responsive</li>
-              <li>Formulario de contacto + WhatsApp</li>
-              <li>Dominio incluido</li>
-              <li>Hosting incluido (1 año)</li>
-              <li>Certificado SSL</li>
-              <li>Optimización SEO básica</li>
-              <li>Web lista para escalar</li>
-            </ul>
-            <h4>Plazo:</h4>
-            <p>7 a 10 días</p>
-            <h4>Precio orientativo:</h4>
-            <p>USD 200 - $300.000</p>
-            <p class="resultado">
-              Resultado para el cliente:<br />“Una web sólida que transmite
-              confianza y posiciona la marca”.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Tienda Online / E-commerce</h3>
-            <p>Ideal para vender productos o servicios online</p>
-            <ul>
-              <li>Tienda online completa</li>
-              <li>Catálogo de productos</li>
-              <li>Carrito de compras</li>
-              <li>Medios de pago integrados</li>
-              <li>Gestión de stock</li>
-              <li>Panel administrador</li>
-              <li>Dominio incluido</li>
-              <li>Hosting incluido (1 año)</li>
-              <li>Certificado SSL</li>
-              <li>Optimización SEO básica</li>
-            </ul>
-            <h4>Plazo:</h4>
-            <p>A definir según alcance</p>
-            <h4>Precio:</h4>
-            <p>Desde USD 300 - $450.000</p>
-            <p class="resultado">
-              Resultado para el cliente:<br />“Vender 24/7 y escalar el
-              negocio”.
-            </p>
+
+          <div class="projects-grid">
+            <article class="project-card reveal">
+              <a href="https://futbolproyect.com/" target="_blank" rel="noopener">
+                <img src="futbolproyect-img.png" alt="Captura del sitio FutbolProyect" />
+              </a>
+              <div class="project-body">
+                <p class="tag">Plataforma web</p>
+                <h3>FutbolProyect</h3>
+                <p>Sitio orientado a conectar perfiles del fútbol con oportunidades, con navegación clara y acceso directo a registro.</p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <img src="im2.png" alt="Pieza visual de captación para FutbolProyect" />
+              <div class="project-body">
+                <p class="tag">Comunicación visual</p>
+                <h3>Captación de usuarios</h3>
+                <p>Piezas digitales preparadas para campañas, redes y mensajes comerciales con una propuesta de valor directa.</p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <img src="1.png" alt="Pieza para clubes, agentes y scouts de FutbolProyect" />
+              <div class="project-body">
+                <p class="tag">Contenido comercial</p>
+                <h3>Mensajes segmentados</h3>
+                <p>Material pensado para públicos concretos, reforzando el beneficio y el llamado a registrarse.</p>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contacto">
-      <div class="container">
-        <h2>Contacto</h2>
-        <form id="contactForm">
-          <input type="text" id="name" placeholder="Nombre" required />
-          <input type="email" id="email" placeholder="Email" required />
-          <textarea rows="4" id="message" placeholder="Mensaje"></textarea>
-          <button type="submit">Enviar mensaje</button>
-          <p id="formMessage"></p>
-        </form>
-      </div>
-    </section>
+      <section id="planes" class="section section-light">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Planes</p>
+            <h2>Elegí el alcance según tu etapa</h2>
+            <p>Precios orientativos para partir de una base clara. El presupuesto final se ajusta al contenido, integraciones y objetivos del proyecto.</p>
+          </div>
+
+          <div class="plans-grid">
+            <article class="plan-card reveal">
+              <p class="plan-label">Para empezar rápido</p>
+              <h3>Landing Page Profesional</h3>
+              <p class="plan-price">USD 120 <span>o $180.000</span></p>
+              <p class="plan-lead">Ideal para validar una oferta, captar consultas y presentar tu negocio con autoridad.</p>
+              <ul>
+                <li>Landing de una página</li>
+                <li>Diseño moderno y responsive</li>
+                <li>Secciones orientadas a conversión</li>
+                <li>WhatsApp y formulario de contacto</li>
+                <li>Dominio, hosting por 1 año y SSL</li>
+                <li>SEO básico y carga rápida</li>
+              </ul>
+              <div class="plan-footer">
+                <span>3 a 5 días</span>
+                <a href="#contacto">Consultar</a>
+              </div>
+            </article>
+
+            <article class="plan-card plan-featured reveal">
+              <p class="plan-label">Más elegido</p>
+              <h3>Web Profesional / Corporativa</h3>
+              <p class="plan-price">USD 200 <span>o $300.000</span></p>
+              <p class="plan-lead">Para marcas personales, pymes y negocios que necesitan una presencia completa.</p>
+              <ul>
+                <li>Hasta 5 o 6 secciones</li>
+                <li>Inicio, servicios, portfolio y contacto</li>
+                <li>Diseño personalizado</li>
+                <li>Formulario de contacto + WhatsApp</li>
+                <li>Dominio, hosting por 1 año y SSL</li>
+                <li>Base lista para escalar</li>
+              </ul>
+              <div class="plan-footer">
+                <span>7 a 10 días</span>
+                <a href="#contacto">Consultar</a>
+              </div>
+            </article>
+
+            <article class="plan-card reveal">
+              <p class="plan-label">Para vender online</p>
+              <h3>Tienda Online / E-commerce</h3>
+              <p class="plan-price">Desde USD 300 <span>o $450.000</span></p>
+              <p class="plan-lead">Para productos, servicios, catálogos y negocios que quieren vender 24/7.</p>
+              <ul>
+                <li>Tienda online completa</li>
+                <li>Catálogo, carrito y medios de pago</li>
+                <li>Panel administrador</li>
+                <li>Gestión de stock</li>
+                <li>Dominio, hosting por 1 año y SSL</li>
+                <li>SEO básico para productos</li>
+              </ul>
+              <div class="plan-footer">
+                <span>Según alcance</span>
+                <a href="#contacto">Consultar</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="proceso" class="section section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Cómo trabajamos</p>
+            <h2>Un proceso simple para llegar a una web publicable</h2>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-step reveal">
+              <span>01</span>
+              <h3>Diagnóstico</h3>
+              <p>Definimos objetivo, público, mensaje principal y secciones necesarias.</p>
+            </article>
+            <article class="process-step reveal">
+              <span>02</span>
+              <h3>Diseño y desarrollo</h3>
+              <p>Construimos la web con foco en claridad, rendimiento y adaptación mobile.</p>
+            </article>
+            <article class="process-step reveal">
+              <span>03</span>
+              <h3>Publicación</h3>
+              <p>Configuramos dominio, hosting, SSL y dejamos los canales de contacto activos.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="section section-contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <p class="eyebrow">Contacto</p>
+            <h2>Contame qué web necesitás</h2>
+            <p>
+              Escribime con una idea general del proyecto y te respondo con una propuesta clara de alcance, tiempos y presupuesto.
+            </p>
+            <a
+              class="contact-whatsapp"
+              href="https://wa.me/5493434055823?text=Hola%20Parana%20Dev,%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+              target="_blank"
+              rel="noopener"
+            >
+              Contactar por WhatsApp
+            </a>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" required />
+
+            <label for="message">Mensaje</label>
+            <textarea
+              rows="5"
+              id="message"
+              name="message"
+              placeholder="Quiero una landing para mi negocio..."
+              required
+            ></textarea>
+
+            <button type="submit">Enviar consulta</button>
+            <p id="formMessage" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      <div class="container">
-        <p>© 2025 Parana Dev - Desarrollo Web</p>
-        <div class="social">
-          <a href="#">LinkedIn</a>
-          <a href="#">Instagram</a>
-          <a href="#">GitHub</a>
+      <div class="container footer-content">
+        <p>© 2026 Parana Dev - Desarrollo Web</p>
+        <div class="social" aria-label="Enlaces útiles">
+          <a href="#planes">Planes</a>
+          <a href="#contacto">Contacto</a>
+          <a
+            href="https://wa.me/5493434055823?text=Hola%20Parana%20Dev,%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
         </div>
       </div>
     </footer>
 
-    <a class="whatsapp" href="https://wa.me/5493434055823" target="_blank">✆</a>
+    <a
+      class="whatsapp"
+      href="https://wa.me/5493434055823?text=Hola%20Parana%20Dev,%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+      target="_blank"
+      rel="noopener"
+      aria-label="Escribir por WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 11.5a8.1 8.1 0 0 1-12 7.1L4 20l1.3-4.1A8.1 8.1 0 1 1 20 11.5Z"></path>
+        <path d="M9.4 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.4.5c-.1.1-.2.3-.1.5.4.8 1.2 1.8 2.3 2.4.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.6 0 .6-.4 1.4-.9 1.6-.7.4-2.9.3-5.2-1.6-2.2-1.8-3.5-4.1-3.4-5.2 0-.4.2-.8.4-1.1Z"></path>
+      </svg>
+    </a>
 
     <script src="script.js"></script>
   </body>
